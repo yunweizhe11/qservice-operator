@@ -1,0 +1,7 @@
+apiVersion: apps.tech/v1beta1
+kind: Qservice
+metadata:
+  name: qservice-sample
+spec:
+  # Add fields here
+  foo: bar

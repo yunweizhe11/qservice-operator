@@ -1,0 +1,57 @@
+apiVersion: apps.tech/v1beta1
+kind: Qservice
+metadata:
+  name: test
+  annotations:
+    octohelm.tech/openAPISpecPath: /example
+spec:
+  envs:
+    SRV_EXAMPLE__Server_Debug: "False"
+  image: nginx:1.21.1
+  livenessProbe:
+    action: http://:80/
+    initialDelaySeconds: 5
+    periodSeconds: 5
+  readinessProbe:
+    action: http://:80/
+    initialDelaySeconds: 5
+    periodSeconds: 5
+  resources:
+    limits:
+      cpu: "1"
+      memory: "100Mi"
+    requests:
+      cpu: "1"
+      memory: "100Mi"
+  ports:
+  - 30002:80
+  - "801"
+  ingress:
+  - domain: test.baidu.com
+    paths:
+    - path: "/"
+      port: 80
+    - path: /api
+      port: 801
+  mount:
+  - name: "test1"
+    targetpath: /var/logs
+    type: hostpath
+    path: /var/log
+    subpath: "redis"
+  # - name: "test"
+  #   targetpath: /var/logs1
+  #   type: pvc
+  #   pvc: "local"
+  #   subpath: "redis"
+
+
+  # 1、ingress 创建 完成
+  # 2、服务自动删除 完成
+  # 3、探针需要增加字段
+  # 4、pvc未测试 完成
+  # 5、增加mount subpath 完成
+  # 6、增加request limit cpu memory 完成
+
+  #制作镜像
+  #生成crd yaml

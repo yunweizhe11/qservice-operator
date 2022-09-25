@@ -1,0 +1,24 @@
+# permissions for end users to edit qservices.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: qservice-editor-role
+rules:
+- apiGroups:
+  - apps.tech
+  resources:
+  - qservices
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - apps.tech
+  resources:
+  - qservices/status
+  verbs:
+  - get

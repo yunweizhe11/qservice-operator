@@ -1,0 +1,16 @@
+domain: tech
+layout:
+- go.kubebuilder.io/v3
+projectName: operator-qservice
+repo: gitee.com/yunweizhe/operator-qservice
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: tech
+  group: apps
+  kind: Qservice
+  path: gitee.com/yunweizhe/operator-qservice/api/v1beta1
+  version: v1beta1
+version: "3"

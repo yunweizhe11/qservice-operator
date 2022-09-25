@@ -486,13 +486,12 @@ func (r *QserviceReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 	// 	instance.Spec.Resources.Requests.Cpu = "1"
 	// 	instance.Spec.Resources.Requests.Memory = "100Mi"
 	// }
-	log.Info(req.Name, instance.Spec.Resources.Requests.Cpu, instance.Spec.Resources)
 	err1 := CreateQservice(instance, req, r)
 	if err1 != nil {
 		log.Error(err1, "create qservice fail")
 		return ctrl.Result{}, err
 	}
-	log.Info("service create success", req.Name, req.NamespacedName)
+	log.Info("qservice create success", req.Name, req.NamespacedName)
 	return ctrl.Result{}, nil
 }
 

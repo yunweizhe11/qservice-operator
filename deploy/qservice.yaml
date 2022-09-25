@@ -396,7 +396,7 @@ spec:
         - --leader-elect
         command:
         - /manager
-        image: yunweizhe/qservice-controller:v1
+        image: yunweizhe/qservice-controller:v2
         livenessProbe:
           httpGet:
             path: /healthz

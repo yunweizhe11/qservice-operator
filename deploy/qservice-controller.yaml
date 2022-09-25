@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: qservice-controller
+  name: qservice-controller
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: qservice-controller
+  template:
+    metadata:
+      labels:
+        app: qservice-controller
+    spec:
+      containers:
+      - name: qservice-controller
+        image: yunweizhe/qservice-controller:v1
+        resources:
+          limits:
+            cpu: 100m
+            memory: 100Mi
+          requests:
+            cpu: 100m
+            memory: 100Mi
+      terminationGracePeriodSeconds: 10

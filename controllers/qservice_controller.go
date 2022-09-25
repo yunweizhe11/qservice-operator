@@ -450,6 +450,8 @@ func CheckArgs(instance *appsv1.Qservice) *appsv1.Qservice {
 //+kubebuilder:rbac:groups="apps",resources=deployments/status,verbs=get
 //+kubebuilder:rbac:groups="",resources=services,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups="",resources=services/status,verbs=get
+//+kubebuilder:rbac:groups="networking.k8s.io",resources=ingresses,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups="networking.k8s.io",resources=ingresses/status,verbs=get
 
 //+kubebuilder:rbac:groups=apps.tech,resources=qservices,verbs=get;list;watch;create;update;patch;delete
 //+kubebuilder:rbac:groups=apps.tech,resources=qservices/status,verbs=get;update;patch
